@@ -4,6 +4,6 @@ const { Route, Redirect } = require('react-router')
 const e = React.createElement
 
 const PublicOnlyRoute = ({ loggedIn, ...rest }) =>
-  loggedIn ? e(Route, { ...rest }) : null
+  loggedIn ? null : e(Route, { ...rest })
 
 module.exports = PublicOnlyRoute
