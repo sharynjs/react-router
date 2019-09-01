@@ -7,12 +7,12 @@ const PrivateRoute = ({
   redirectPath = '/login',
   withReturnUrl = true,
   returnUrlName = 'returnUrl',
-  authCheck,
+  loggedIn,
   component,
   ...rest
 }) => {
-  if (!authCheck) {
-    throw Error('You must pass an authCheck function to PrivateRoute')
+  if (loggedIn === undefined) {
+    throw Error('PrivateRoute requires a loggedIn prop')
   }
   return e(Route, {
     ...rest,
@@ -23,7 +23,7 @@ const PrivateRoute = ({
           props.location.pathname
         )}`
       }
-      return authCheck() ? e(component, props) : e(Redirect, { to })
+      return loggedIn ? e(component, props) : e(Redirect, { to })
     },
   })
 }
