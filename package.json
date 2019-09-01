@@ -1,0 +1,10 @@
+{
+  "name": "@sharyn/react-router",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/sharynjs/sharyn-react-router",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  }
+}
