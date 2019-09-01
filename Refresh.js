@@ -6,3 +6,5 @@ const Refresh = () => {
   }, [])
   return null
 }
+
+module.exports = Refresh
