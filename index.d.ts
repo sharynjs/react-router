@@ -1,4 +1,4 @@
-export { default as PrivateRoute } from './PrivateRoute'
-export { default as PublicOnlyRoute } from './PublicOnlyRoute'
-export { default as Refresh } from './Refresh'
-export { default as ServerOnlyRoute } from './ServerOnlyRoute'
+// I don't know how to type React components.
+// It will eventually happen. Any help is appreciated!
+
+declare module '@sharyn/react-router'
