@@ -10,11 +10,8 @@ const PrivateRoute = ({
   loggedIn,
   component,
   ...rest
-}) => {
-  if (loggedIn === undefined) {
-    throw Error('PrivateRoute requires a loggedIn prop')
-  }
-  return e(Route, {
+}) =>
+  e(Route, {
     ...rest,
     render: props => {
       const to = { pathname: redirectPath }
@@ -26,6 +23,5 @@ const PrivateRoute = ({
       return loggedIn ? e(component, props) : e(Redirect, { to })
     },
   })
-}
 
 module.exports = PrivateRoute
