@@ -7,11 +7,14 @@ const PrivateRoute = ({
   redirectPath = '/login',
   withReturnUrl = true,
   returnUrlName = 'returnUrl',
-  checkAuthenticated,
+  authCheck,
   component,
   ...rest
-}) =>
-  e(Route, {
+}) => {
+  if (!authCheck) {
+    throw Error('You must pass an authCheck function to PrivateRoute')
+  }
+  return e(Route, {
     ...rest,
     render: props => {
       const to = { pathname: redirectPath }
@@ -20,8 +23,9 @@ const PrivateRoute = ({
           props.location.pathname
         )}`
       }
-      return checkAuthenticated() ? e(component, props) : e(Redirect, { to })
+      return authCheck() ? e(component, props) : e(Redirect, { to })
     },
   })
+}
 
 module.exports = PrivateRoute
